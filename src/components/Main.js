@@ -1,23 +1,14 @@
 import React from 'react';
 import Section from "./Section";
+import UserList from "./UserList";
+import {users} from "../utils/user.utils";
 
 const Main = ({setInput}) => {
-
-
 
     return (
         <main>
             <Section setInput={setInput}/>
-            <section>
-                <p>
-                    Some text
-                </p>
-            </section>
-            <section>
-                <p>
-                    More text
-                </p>
-            </section>
+            <UserList users={users}/>
         </main>
     );
 };
