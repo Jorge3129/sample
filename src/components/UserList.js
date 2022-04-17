@@ -1,11 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import User from "./User";
+import {initUsers} from "../utils/user.utils";
 
-const UserList = ({users}) => {
+const UserList = () => {
+
+    const [users, setUsers] = useState(initUsers);
+    const [name, setName] = useState("");
+
+    const getId = () => users.reduce((id, user) => user.id > id ? user.id : id, 0) + 1
+
+    const addUser = (e) => {
+        e.preventDefault();
+        setUsers([...users, {name, id: getId()}])
+    }
+
+    const onChange = (e) => {
+        setName(e.target.value);
+    }
+
     return (
-        <ul>
-            {users.map(user => <User user={user}/>)}
-        </ul>
+        <form>
+            <ul>
+                {users.map(user => <User key={user.id + ""} user={user}/>)}
+            </ul>
+            <input type="text" value={name} onChange={onChange}/>
+            <button onClick={addUser}>Add User</button>
+        </form>
     );
 };
 
