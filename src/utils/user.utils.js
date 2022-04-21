@@ -10,3 +10,5 @@ export const additionalUsers = [
     {name: "George", id: 6},
     {name: "Samuel", id: 7},
 ]
+
+export const getId = (users) => users.reduce((id, user) => user.id > id ? user.id : id, 0) + 1

@@ -2,10 +2,12 @@ import React from 'react';
 import Section from "./Section";
 import UserList from "./UserList";
 
-const Main = ({setInput}) => {
+const Main = ({input, setInput}) => {
+
 
     return (
         <main>
+            Input: {input}
             <Section setInput={setInput}/>
             <UserList/>
         </main>
