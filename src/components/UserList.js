@@ -1,12 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import User from "./User";
-import {getId, initUsers} from "../utils/user.utils";
+import {getId} from "../utils/user.utils";
+import {getUsers} from "../services/user.api";
 
 const UserList = () => {
 
-    const [users, setUsers] = useState(initUsers);
+    const [users, setUsers] = useState([]);
     const [name, setName] = useState("");
     const [deleteId, setDeleteId] = useState("");
+
+    useEffect(() => {
+        (async () => {
+            setUsers(await getUsers())
+        })()
+    },[])
 
     const addUser = (e) => {
         e.preventDefault();

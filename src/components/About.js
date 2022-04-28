@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const About = () => {
+
+    const [val, setVal] = useState(() => {})
+
     return (
         <main>
             <h2>About</h2>
